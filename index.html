@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Prévia -- LP Barracas MKK Off Road (Prime Z / Prime 135 / Prime X)</title>
+<!--
+  Gerado por gerar_pacote.py -- NÃO editar à mão (as mudanças se perdem no próximo
+  "python gerar_pacote.py"). Edite as fontes em secoes/, 1-css.css, 3-body.html.
+
+  Prévia PÚBLICA para a dona aprovar o DESIGN (texto em Lorem Ipsum, ver o pedido desta
+  LP) -- por isso: sem GTM, sem nenhum pixel/rastreamento, noindex/nofollow, e o
+  formulário abaixo é uma IMITAÇÃO com o mesmo HTML/classes que o RD gera de verdade
+  (framework "Bricks"), com o envio desativado (botão disabled). Não é a página que
+  entra no ar -- ela cola em para-colar/ dentro do editor do RD.
+-->
+<style>
+html, body { margin:0; background:#fff; }
+</style>
+<style>
+/* ===== 1-css.css gerado (caminhos relativos, img/ e video/ ao lado deste arquivo) ===== */
+/* Consumidor: campo "CSS" da Edição Avançada da LP Barracas (Prime Z / Prime 135 / Prime X)
+   no RD Station Marketing. Cole este arquivo inteiro nesse campo. Gerado por gerar_pacote.py
+   a partir das fontes em docs/integracoes/rd-station/landing-pages/barracas-rd/.
+   LP NOVA (não é réplica de página existente) -- layout inspirado no ritmo de seções do
+   Yoho Kamper (ver barracas-referencia-yoho.md), identidade visual 100% MKK (tokens e
+   componentes reaproveitados de bagageiros-rd/1-css.css, já validados em produção no RD).
+   Todas as classes usam o prefixo mkk- para não colidir com o CSS do próprio RD. */
+
+/* ---------- fontes ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap');
+
+/* ---------- reset escopado (:where() -- especificidade zero, nunca briga com componente) ---------- */
+:where(.mkk-section, .mkk-section *, .mkk-section *::before, .mkk-section *::after) {
+  box-sizing: border-box;
+}
+.mkk-section {
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+:where(.mkk-section) :where(h1, h2, h3, h4, p) { margin: 0; padding: 0; }
+:where(.mkk-section) :where(img) { max-width: 100%; height: auto; display: block; border: 0; }
+:where(.mkk-section) :where(a) { text-decoration: none; }
+:where(.mkk-section) :where(button) { font-family: inherit; }
+
+html { scroll-behavior: smooth; }
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* ---------- tokens ---------- */
+:root {
+  --mkk-gold: #F7BD4F;
+  --mkk-gold-border: #E19E1F;
+  --mkk-dark: #1F1F1F;
+  --mkk-black: #000000;
+  --mkk-offwhite: #F1F0EC;
+  --mkk-graylight: #EDEBE4;
+  --mkk-white: #FFFFFF;
+}
+
+/* ---------- utilitário: faixa de ponta a ponta (rompe os 960px do RD) ---------- */
+.mkk-full {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+.mkk-inner { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- botão dourado ---------- */
+.mkk-btn {
+  display: inline-block;
+  background-color: var(--mkk-gold);
+  border: 1px solid var(--mkk-gold-border);
+  border-radius: 10px;
+  color: #070707;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.3;
+  padding: 15px 28px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .3s;
+}
+.mkk-btn:hover, .mkk-btn:focus { transform: scale(1.06); }
+.mkk-btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.6);
+  color: #fff;
+}
+.mkk-btn--dark { background: var(--mkk-dark); border-color: var(--mkk-dark); color: #fff; }
+.mkk-btn--full { display: block; width: 100%; }
+@media (max-width: 767px) {
+  .mkk-btn { font-size: 15px; padding: 14px 20px; }
+}
+
+/* ---------- cabeçalho de seção: kicker + H2 + traço + subtítulo ---------- */
+.mkk-kicker {
+  font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px;
+  color: var(--mkk-gold-border); margin-bottom: 10px;
+}
+.mkk-kicker--onDark { color: var(--mkk-gold); }
+.mkk-h2 {
+  font-size: 40px; font-weight: 900; text-transform: uppercase; line-height: 1.05;
+  letter-spacing: -0.5px; color: var(--mkk-dark);
+}
+.mkk-h2--onDark { color: #fff; }
+.mkk-h2__trace { display: block; width: 44px; height: 4px; background: var(--mkk-gold); margin-top: 16px; border-radius: 2px; }
+.mkk-h2__trace--center { margin-left: auto; margin-right: auto; }
+.mkk-sectionhead { max-width: 640px; }
+.mkk-sectionhead--center { max-width: 640px; margin: 0 auto; text-align: center; }
+.mkk-sectionhead__p { font-size: 16px; line-height: 1.6; color: #4a4a4a; margin-top: 16px; }
+.mkk-sectionhead__p--onDark { color: rgba(255,255,255,.75); }
+@media (max-width: 767px) {
+  .mkk-h2 { font-size: 28px; }
+  .mkk-kicker { font-size: 11px; letter-spacing: 1.2px; }
+}
+
+/* =========================================================================
+   01. HEADER
+   ========================================================================= */
+.mkk-header { background: var(--mkk-dark); padding: 16px 20px; }
+.mkk-header__inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.mkk-header__logo { width: 56px; flex: 0 0 auto; }
+.mkk-header__nav { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
+.mkk-header__link {
+  color: #fff; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .6px;
+  opacity: .85; transition: opacity .2s, color .2s;
+}
+.mkk-header__link:hover { opacity: 1; color: var(--mkk-gold); }
+.mkk-header__cta { flex: 0 0 auto; padding: 10px 20px; font-size: 13px; }
+@media (max-width: 900px) {
+  .mkk-header__nav { display: none; }
+}
+@media (max-width: 480px) {
+  .mkk-header__cta { padding: 9px 14px; font-size: 12px; }
+}
+
+/* =========================================================================
+   02. HERO
+   ========================================================================= */
+.mkk-hero {
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  background-color: #000;
+  background-image:
+    linear-gradient(90deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.15) 100%),
+    linear-gradient(0deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 35%),
+    url("img/prime-z/prime-z-38.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px 70px;
+}
+.mkk-hero__inner { max-width: 1140px; margin: 0 auto; width: 100%; }
+.mkk-hero__content { max-width: 640px; }
+.mkk-hero__title {
+  font-size: 78px; font-weight: 900; text-transform: uppercase;
+  line-height: .96; letter-spacing: -1.5px; color: #fff; margin-top: 14px;
+}
+.mkk-hero__sub {
+  font-size: 18px; font-weight: 400; line-height: 1.6; color: rgba(255,255,255,.85);
+  margin-top: 22px; max-width: 520px;
+}
+.mkk-hero__actions { display: flex; gap: 16px; margin-top: 34px; flex-wrap: wrap; }
+@media (max-width: 1024px) {
+  .mkk-hero__title { font-size: 56px; }
+}
+@media (max-width: 767px) {
+  .mkk-hero { min-height: 460px; padding: 36px 16px 40px; align-items: flex-end; }
+  .mkk-hero__title { font-size: 34px; letter-spacing: -.5px; }
+  .mkk-hero__sub { font-size: 14px; margin-top: 14px; }
+  .mkk-hero__actions { margin-top: 20px; }
+}
+
+/* =========================================================================
+   03. POR QUE UMA BARRACA MKK -- 6 cartões foto + título
+   ========================================================================= */
+.mkk-porque { background: var(--mkk-offwhite); padding: 70px 20px; }
+.mkk-porque__grid {
+  max-width: 1140px; margin: 44px auto 0; display: grid;
+  grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.mkk-porque__card {
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: -1px 1px 3px rgba(0,0,0,.11);
+}
+.mkk-porque__img { aspect-ratio: 4/3; overflow: hidden; }
+.mkk-porque__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.mkk-porque__card:hover .mkk-porque__img img { transform: scale(1.05); }
+.mkk-porque__body { padding: 18px 20px 22px; }
+.mkk-porque__tag {
+  display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--mkk-gold-border); border: 1px solid var(--mkk-gold-border);
+  border-radius: 4px; padding: 3px 8px; margin-bottom: 10px;
+}
+.mkk-porque__h { font-size: 18px; font-weight: 800; text-transform: uppercase; color: var(--mkk-dark); line-height: 1.2; }
+.mkk-porque__p { font-size: 13px; line-height: 1.55; color: #666; margin-top: 8px; }
+@media (max-width: 900px) {
+  .mkk-porque__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .mkk-porque { padding: 40px 16px; }
+  .mkk-porque__grid { grid-template-columns: 1fr; gap: 14px; margin-top: 28px; }
+}
+
+/* =========================================================================
+   04. OS TRÊS MODELOS -- cartão de produto reutilizável
+   ========================================================================= */
+.mkk-modelos { background: #fff; padding: 70px 20px; }
+.mkk-modelos__grid {
+  max-width: 1140px; margin: 44px auto 0; display: grid;
+  grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.mkk-modelocard {
+  background: var(--mkk-dark); border-radius: 14px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.mkk-modelocard__img { aspect-ratio: 1/1; overflow: hidden; background: #000; }
+.mkk-modelocard__img img { width: 100%; height: 100%; object-fit: cover; }
+.mkk-modelocard__body { padding: 22px 22px 26px; }
+.mkk-modelocard__sku { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--mkk-gold); }
+.mkk-modelocard__h { font-size: 26px; font-weight: 800; text-transform: uppercase; color: #fff; margin-top: 6px; }
+.mkk-modelocard__specs { list-style: none; margin: 16px 0 22px; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.mkk-modelocard__specs li { font-size: 13px; color: rgba(255,255,255,.72); padding-left: 16px; position: relative; }
+.mkk-modelocard__specs li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--mkk-gold); }
+@media (max-width: 900px) {
+  .mkk-modelos__grid { grid-template-columns: 1fr; max-width: 460px; }
+}
+@media (max-width: 600px) {
+  .mkk-modelos { padding: 40px 16px; }
+}
+
+/* =========================================================================
+   05/06/07. SPOTLIGHT -- destaque de 1 modelo (texto+ficha / foto ou vídeo)
+   ========================================================================= */
+.mkk-spotlight { padding: 80px 20px; }
+.mkk-spotlight--dark { background: var(--mkk-dark); }
+.mkk-spotlight--white { background: #fff; }
+.mkk-spotlight--gray { background: var(--mkk-graylight); }
+.mkk-spotlight__inner {
+  max-width: 1140px; margin: 0 auto; display: flex; align-items: center; gap: 56px;
+}
+.mkk-spotlight--reverse .mkk-spotlight__inner { flex-direction: row-reverse; }
+.mkk-spotlight__text { flex: 0 0 42%; max-width: 42%; }
+.mkk-spotlight__media { flex: 0 0 54%; max-width: 54%; border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; background: #000; position: relative; }
+.mkk-spotlight__media img, .mkk-spotlight__media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mkk-spotlight__h { font-size: 44px; font-weight: 900; text-transform: uppercase; line-height: 1; margin-top: 10px; }
+.mkk-spotlight--dark .mkk-spotlight__h, .mkk-spotlight--dark .mkk-spotlight__p { color: #fff; }
+.mkk-spotlight__p { font-size: 15px; line-height: 1.65; color: #555; margin-top: 18px; max-width: 440px; }
+.mkk-spotlight__lista { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.mkk-spotlight__lista li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: inherit; }
+.mkk-spotlight--dark .mkk-spotlight__lista li { color: rgba(255,255,255,.88); }
+.mkk-spotlight--white .mkk-spotlight__lista li, .mkk-spotlight--gray .mkk-spotlight__lista li { color: #333; }
+.mkk-spotlight__check {
+  flex: 0 0 auto; width: 18px; height: 18px; border-radius: 50%; background: var(--mkk-gold);
+  display: flex; align-items: center; justify-content: center; margin-top: 1px;
+}
+.mkk-spotlight__check::after { content: "\2713"; font-size: 11px; font-weight: 700; color: #1a1a1a; }
+.mkk-spotlight__specs {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(128,128,128,.25);
+}
+.mkk-spotlight--dark .mkk-spotlight__specs { border-top-color: rgba(255,255,255,.15); }
+.mkk-spotlight__spec-label { font-size: 11px; text-transform: uppercase; letter-spacing: .8px; color: var(--mkk-gold-border); }
+.mkk-spotlight--dark .mkk-spotlight__spec-label { color: var(--mkk-gold); }
+.mkk-spotlight__spec-value { font-size: 15px; font-weight: 700; margin-top: 4px; }
+.mkk-spotlight--dark .mkk-spotlight__spec-value { color: #fff; }
+.mkk-spotlight--white .mkk-spotlight__spec-value, .mkk-spotlight--gray .mkk-spotlight__spec-value { color: var(--mkk-dark); }
+.mkk-spotlight__cta { margin-top: 30px; }
+@media (max-width: 1024px) {
+  .mkk-spotlight__inner { flex-direction: column !important; gap: 30px; }
+  .mkk-spotlight__text, .mkk-spotlight__media { flex-basis: 100%; max-width: 100%; }
+  .mkk-spotlight__media { aspect-ratio: 16/10; }
+}
+@media (max-width: 767px) {
+  .mkk-spotlight { padding: 44px 16px; }
+  .mkk-spotlight__h { font-size: 30px; }
+  .mkk-spotlight__specs { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .mkk-spotlight__spec-value { font-size: 13px; }
+}
+
+/* =========================================================================
+   08. COMPARATIVO -- tabela dos 3 modelos
+   ========================================================================= */
+.mkk-comparativo { background: var(--mkk-dark); padding: 70px 20px; }
+.mkk-comparativo__scroll { max-width: 1140px; margin: 40px auto 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; }
+.mkk-comparativo table { width: 100%; min-width: 640px; border-collapse: collapse; background: #262626; }
+.mkk-comparativo th, .mkk-comparativo td {
+  text-align: left; padding: 16px 18px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,.08);
+  white-space: nowrap;
+}
+.mkk-comparativo thead th {
+  background: #161616; color: var(--mkk-gold); text-transform: uppercase; letter-spacing: .8px; font-size: 12px;
+}
+.mkk-comparativo tbody th { color: rgba(255,255,255,.55); font-weight: 500; white-space: normal; }
+.mkk-comparativo tbody td { color: #fff; font-weight: 600; }
+.mkk-comparativo tbody tr:last-child th, .mkk-comparativo tbody tr:last-child td { border-bottom: none; }
+@media (max-width: 767px) {
+  .mkk-comparativo { padding: 40px 0 40px 16px; }
+  .mkk-comparativo__scroll { margin-top: 26px; }
+  .mkk-comparativo .mkk-inner { padding-right: 16px; }
+}
+
+/* =========================================================================
+   09. GRADE DE DETALHES -- 3x2, foto + legenda sobreposta
+   ========================================================================= */
+.mkk-detalhes { background: #fff; padding: 70px 20px; }
+.mkk-detalhes__grid { max-width: 1140px; margin: 44px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.mkk-detalhes__item {
+  position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 1/1;
+  box-shadow: 0 6px 18px rgba(0,0,0,.14);
+}
+.mkk-detalhes__item img { width: 100%; height: 100%; object-fit: cover; }
+.mkk-detalhes__overlay {
+  position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,0) 55%);
+}
+.mkk-detalhes__caption {
+  position: absolute; left: 0; bottom: 0; padding: 16px 18px; color: #fff;
+}
+.mkk-detalhes__caption span {
+  display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--mkk-gold);
+}
+.mkk-detalhes__caption strong { display: block; font-size: 15px; font-weight: 700; margin-top: 2px; }
+@media (max-width: 900px) { .mkk-detalhes__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .mkk-detalhes { padding: 40px 16px; }
+  .mkk-detalhes__grid { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
+}
+
+/* =========================================================================
+   10. CHAMADA PARA O FORMULÁRIO (fundo escuro, fecha o bloco A)
+   ========================================================================= */
+.mkk-form-topo { background: var(--mkk-dark); padding: 70px 20px 40px; text-align: center; }
+.mkk-form-topo__h1 { font-size: 52px; font-weight: 900; text-transform: uppercase; line-height: .98; color: #fff; }
+.mkk-form-topo__h2 { font-size: 52px; font-weight: 900; text-transform: uppercase; line-height: .98; color: var(--mkk-gold); }
+.mkk-form-topo__p { font-size: 16px; color: rgba(255,255,255,.75); max-width: 560px; margin: 20px auto 0; }
+@media (max-width: 767px) {
+  .mkk-form-topo__h1, .mkk-form-topo__h2 { font-size: 30px; }
+}
+
+.mkk-form-rodape { background: var(--mkk-dark); padding: 10px 20px 60px; text-align: center; }
+.mkk-form-rodape__p { max-width: 640px; margin: 0 auto; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.6); }
+
+/* Formulário nativo do RD -- mesma estrutura Bricks validada na LP Bagageiros
+   (id #conversion-form, framework "Bricks": .bricks-form__fieldset >
+   .bricks-form__field, telefone com .phone-input-group, botão
+   .bricks-form__submit .rd-button). O RD injeta CSS por id a cada
+   publicação, com especificidade maior -- por isso !important aqui.
+   Cartão de 1140px (full-bleed no wrapper .rd-form, igual à Bagageiros). */
+.rd-form, [id^="rd-form-"] {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding: 0 20px !important;
+  box-sizing: border-box !important;
+}
+#conversion-form {
+  width: 100% !important;
+  background: #fff !important;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+  padding: 34px !important;
+  border-radius: 15px !important;
+  box-shadow: -1px 1px 3px rgba(0,0,0,.11);
+  font-family: "Rubik", sans-serif !important;
+  /* box-sizing explícito -- não depender do reset :where(.mkk-section...) nem
+     de o RD já normalizar isso: sem isto, width:100% + padding (content-box,
+     default do navegador) soma 40px por fora e estoura a viewport no mobile
+     (achado testando o site/ local -- ver conferir.js, item C do pedido). */
+  box-sizing: border-box !important;
+}
+#conversion-form .bricks-form__fieldset {
+  display: flex !important; flex-direction: row !important; align-items: flex-start !important;
+  flex-wrap: wrap !important; gap: 0 20px !important;
+}
+#conversion-form .bricks-form__field {
+  min-width: 0 !important; flex: 0 0 calc(50% - 10px) !important; max-width: calc(50% - 10px) !important;
+  margin-bottom: 18px !important;
+}
+#conversion-form .bricks-form__field.mkk-form-full,
+#conversion-form .bricks-form__field:has(.rd-bricks-captcha) {
+  flex-basis: 100% !important; max-width: 100% !important;
+}
+#conversion-form .bricks-form__input::placeholder { color: #8a8a8a !important; opacity: 1 !important; }
+#conversion-form .bricks-form__label {
+  font-family: "Rubik", sans-serif !important; font-weight: 500 !important; color: #1F1F1F !important;
+  font-size: 14px !important; line-height: 1.4 !important; margin-bottom: 6px !important; display: block !important;
+}
+#conversion-form .bricks-form__input,
+#conversion-form input.bricks-form__input,
+#conversion-form select.bricks-form__input,
+#conversion-form textarea.bricks-form__input {
+  width: 100% !important; height: auto !important; border: 1px solid #ddd !important; border-radius: 6px !important;
+  padding: 14px 16px !important; font-family: "Rubik", sans-serif !important; font-size: 15px !important;
+  color: #1F1F1F !important; background: #fff !important; box-sizing: border-box !important;
+}
+#conversion-form .bricks-form__input:focus { outline: none !important; border-color: var(--mkk-gold) !important; }
+#conversion-form .phone-input-group { display: flex !important; align-items: stretch !important; gap: 8px !important; }
+#conversion-form .phone-input-group .bricks-form__input { flex: 1 1 auto !important; width: auto !important; }
+#conversion-form .phone-input-group .select2-container.phone-country { flex: 0 0 64px !important; width: 64px !important; }
+#conversion-form .phone-input-group .select2-container.phone-country .select2-choice {
+  height: 100% !important; min-height: 48px !important; display: flex !important; align-items: center !important;
+  justify-content: center !important; border: 1px solid #ddd !important; border-radius: 6px !important;
+  background: #fff !important; padding: 0 !important;
+}
+#conversion-form .phone-input-group .select2-chosen { line-height: 1 !important; }
+#conversion-form .phone-input-group img.flag { width: 22px !important; height: auto !important; display: block !important; }
+#conversion-form .phone-input-group .select2-search-choice-close { display: none !important; }
+#conversion-form .phone-input-group > .form-control.phone-country:not(.select2-container) { display: none !important; }
+#conversion-form .bricks-form__submit { margin-top: 6px !important; }
+#conversion-form .bricks-form__submit .rd-button,
+#conversion-form button.rd-button,
+#conversion-form a.rd-button {
+  display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: center !important;
+  background-color: rgba(247,189,79,1) !important; border: 1px solid rgba(225,158,31,1) !important; color: #0B0B0B !important;
+  width: 100% !important; max-width: 100% !important; height: auto !important; min-height: 70px !important;
+  font-family: "Rubik", sans-serif !important; font-size: 20px !important; font-weight: 600 !important; line-height: normal !important;
+  text-align: center !important; border-radius: 10px !important; cursor: pointer !important; margin: 0 !important;
+  padding: 10px 20px !important; transition: transform .3s;
+}
+#conversion-form .bricks-form__submit .rd-button:hover { transform: scale(1.03); }
+@media (max-width: 767px) {
+  #conversion-form { padding: 20px !important; }
+  #conversion-form .bricks-form__field { flex: 0 0 100% !important; max-width: 100% !important; }
+}
+
+/* =========================================================================
+   11. FAQ (acordeão -- mesmo padrão validado na Bagageiros)
+   ========================================================================= */
+.mkk-faq { background: var(--mkk-offwhite); padding: 70px 20px; }
+.mkk-faq__head { text-align: center; margin-bottom: 34px; }
+.mkk-faq__list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 4px; }
+.mkk-faq__item { border-radius: 5px; overflow: hidden; }
+.mkk-faq__q {
+  width: 100%; text-align: left; background: var(--mkk-dark); color: #fff; border: none;
+  font-family: "Rubik", sans-serif; font-size: 17px; font-weight: 600; padding: 20px;
+  display: flex; justify-content: space-between; align-items: center; cursor: pointer; gap: 12px;
+  border-radius: 5px; transition: background-color .2s;
+}
+.mkk-faq__q:hover { background: var(--mkk-gold); }
+.mkk-faq__item.mkk-is-open .mkk-faq__q { background: var(--mkk-dark); color: #fff; }
+.mkk-faq__icon { flex: 0 0 auto; width: 15px; height: 15px; position: relative; }
+.mkk-faq__icon::before, .mkk-faq__icon::after { content: ""; position: absolute; background: currentColor; }
+.mkk-faq__icon::before { top: 6px; left: 0; width: 15px; height: 3px; }
+.mkk-faq__icon::after { top: 0; left: 6px; width: 3px; height: 15px; transition: opacity .15s; }
+.mkk-faq__item.mkk-is-open .mkk-faq__icon::after { opacity: 0; }
+.mkk-faq__a {
+  max-height: 0; overflow: hidden; transition: max-height .4s ease;
+  font-size: 14px; font-weight: 400; line-height: 1.7; color: var(--mkk-dark); padding: 0 20px;
+}
+.mkk-faq__item.mkk-is-open .mkk-faq__a { padding: 15px 20px; }
+@media (max-width: 767px) {
+  .mkk-faq { padding: 40px 16px; }
+  .mkk-faq__q { font-size: 15px; padding: 14px; }
+}
+
+/* =========================================================================
+   12. RODAPÉ
+   ========================================================================= */
+.mkk-footer { background: #fff; padding: 44px 20px; text-align: center; border-top: 1px solid #eee; }
+.mkk-footer__logo { width: 74px; margin: 0 auto 16px; }
+.mkk-footer__nav { display: flex; justify-content: center; gap: 22px; margin-bottom: 16px; flex-wrap: wrap; }
+.mkk-footer__nav a { font-size: 12px; color: #777; text-transform: uppercase; letter-spacing: .5px; }
+.mkk-footer__p { font-size: 12px; color: #999; }
+@media (max-width: 767px) { .mkk-footer__logo { width: 54px; } }
+
+</style>
+</head>
+<body>
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 1 -- Header:
+     logo + 3 âncoras + botão que rola até o formulário. Sem sticky (decisão:
+     não se aplica -- não há barra de navegação própria hoje, ver
+     barracas-referencia-yoho.md seção 5). -->
+<section class="mkk-section mkk-header mkk-full">
+  <div class="mkk-header__inner">
+    <a href="#topo" class="mkk-header__logo"><img src="img/logos/logo-header.svg" alt="MKK Off Road" /></a>
+    <ul class="mkk-header__nav">
+      <li><a class="mkk-header__link" href="#modelos">Modelos</a></li>
+      <li><a class="mkk-header__link" href="#comparativo">Comparativo</a></li>
+      <li><a class="mkk-header__link" href="#perguntas">Perguntas</a></li>
+    </ul>
+    <a class="mkk-btn mkk-header__cta" href="#orcamento">Lorem Ipsum</a>
+  </div>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 2 -- Hero
+     escuro, foto do Prime Z (contraluz dramático, ver hero_candidata no
+     manifesto). Título gigante estilo Yoho (peso 900, tracking apertado) +
+     2 CTAs: 1 rola até o formulário, 1 rola até "os modelos". -->
+<section class="mkk-section mkk-hero mkk-full" id="topo">
+  <div class="mkk-hero__inner">
+    <div class="mkk-hero__content">
+      <p class="mkk-kicker mkk-kicker--onDark">Lorem ipsum dolor sit</p>
+      <h1 class="mkk-hero__title">Lorem Ipsum<br />Dolor Sit Amet</h1>
+      <p class="mkk-hero__sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+      <div class="mkk-hero__actions">
+        <a class="mkk-btn" href="#orcamento">Lorem Ipsum Dolor</a>
+        <a class="mkk-btn mkk-btn--ghost" href="#modelos">Lorem Ipsum</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 3 -- "Por
+     que uma barraca MKK", grade 3x2 foto+título (base: Home #03 do Yoho, ver
+     barracas-referencia-yoho.md). Fotos de detalhe/material (close), não de
+     uso -- casco em alumínio, amortecedor, tecido, LED, costura vedada e
+     fechadura (ver manifesto de mídia). -->
+<section class="mkk-section mkk-porque mkk-full">
+  <div class="mkk-inner">
+    <div class="mkk-sectionhead mkk-sectionhead--center">
+      <p class="mkk-kicker">Lorem ipsum dolor</p>
+      <h2 class="mkk-h2">Lorem Ipsum Dolor Sit</h2>
+      <span class="mkk-h2__trace mkk-h2__trace--center"></span>
+      <p class="mkk-sectionhead__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p>
+    </div>
+    <div class="mkk-porque__grid">
+      <div class="mkk-porque__card">
+        <div class="mkk-porque__img"><img src="img/prime-135/prime-135-casco-aluminio.jpg" alt="Detalhe do casco em alumínio" loading="lazy" /></div>
+        <div class="mkk-porque__body">
+          <span class="mkk-porque__tag">Lorem</span>
+          <h3 class="mkk-porque__h">Lorem Ipsum Dolor</h3>
+          <p class="mkk-porque__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+        </div>
+      </div>
+      <div class="mkk-porque__card">
+        <div class="mkk-porque__img"><img src="img/prime-135/prime-135-amortecedor.jpg" alt="Detalhe do amortecedor a gás" loading="lazy" /></div>
+        <div class="mkk-porque__body">
+          <span class="mkk-porque__tag">Lorem</span>
+          <h3 class="mkk-porque__h">Lorem Ipsum Dolor</h3>
+          <p class="mkk-porque__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+        </div>
+      </div>
+      <div class="mkk-porque__card">
+        <div class="mkk-porque__img"><img src="img/prime-135/prime-135-tecido.jpg" alt="Textura do tecido ripstop" loading="lazy" /></div>
+        <div class="mkk-porque__body">
+          <span class="mkk-porque__tag">Lorem</span>
+          <h3 class="mkk-porque__h">Lorem Ipsum Dolor</h3>
+          <p class="mkk-porque__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+        </div>
+      </div>
+      <div class="mkk-porque__card">
+        <div class="mkk-porque__img"><img src="img/prime-135/prime-135-led.jpg" alt="Fita de LED interna" loading="lazy" /></div>
+        <div class="mkk-porque__body">
+          <span class="mkk-porque__tag">Lorem</span>
+          <h3 class="mkk-porque__h">Lorem Ipsum Dolor</h3>
+          <p class="mkk-porque__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+        </div>
+      </div>
+      <div class="mkk-porque__card">
+        <div class="mkk-porque__img"><img src="img/prime-x/prime-x-costura.jpg" alt="Costura com fita de vedação" loading="lazy" /></div>
+        <div class="mkk-porque__body">
+          <span class="mkk-porque__tag">Lorem</span>
+          <h3 class="mkk-porque__h">Lorem Ipsum Dolor</h3>
+          <p class="mkk-porque__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+        </div>
+      </div>
+      <div class="mkk-porque__card">
+        <div class="mkk-porque__img"><img src="img/prime-x/prime-x-fechadura.jpg" alt="Mecanismo de fechadura e trava" loading="lazy" /></div>
+        <div class="mkk-porque__body">
+          <span class="mkk-porque__tag">Lorem</span>
+          <h3 class="mkk-porque__h">Lorem Ipsum Dolor</h3>
+          <p class="mkk-porque__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 4 -- "Os
+     três modelos", cartão de produto reutilizável (base: página de produto
+     do Yoho, cartão de modelo -- ver barracas-referencia-yoho.md seção 2).
+     Fotos fechada/no carro, ângulo 3/4 (uso_sugerido=cartao_modelo no
+     manifesto). Nomes reais dos 3 modelos; specs em Lorem. Botão de cada
+     cartão rola até o destaque do próprio modelo (seções 05/06/07). -->
+<section class="mkk-section mkk-modelos mkk-full" id="modelos">
+  <div class="mkk-inner">
+    <div class="mkk-sectionhead mkk-sectionhead--center">
+      <p class="mkk-kicker">Lorem ipsum dolor</p>
+      <h2 class="mkk-h2">Os Três Modelos</h2>
+      <span class="mkk-h2__trace mkk-h2__trace--center"></span>
+      <p class="mkk-sectionhead__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p>
+    </div>
+    <div class="mkk-modelos__grid">
+      <div class="mkk-modelocard">
+        <div class="mkk-modelocard__img"><img src="img/prime-z/prime-z-01.jpg" alt="Prime Z fechada" loading="lazy" /></div>
+        <div class="mkk-modelocard__body">
+          <span class="mkk-modelocard__sku">Lorem 01</span>
+          <h3 class="mkk-modelocard__h">Prime Z</h3>
+          <ul class="mkk-modelocard__specs">
+            <li>Lorem ipsum dolor</li>
+            <li>Lorem 00 kg</li>
+            <li>Lorem ipsum dolor sit</li>
+          </ul>
+          <a class="mkk-btn mkk-btn--full" href="#destaque-prime-z">Lorem Ipsum</a>
+        </div>
+      </div>
+      <div class="mkk-modelocard">
+        <div class="mkk-modelocard__img"><img src="img/prime-135/prime-135-img-3911.jpg" alt="Prime 135 fechada" loading="lazy" /></div>
+        <div class="mkk-modelocard__body">
+          <span class="mkk-modelocard__sku">Lorem 02</span>
+          <h3 class="mkk-modelocard__h">Prime 135</h3>
+          <ul class="mkk-modelocard__specs">
+            <li>Lorem ipsum dolor</li>
+            <li>Lorem 00 kg</li>
+            <li>Lorem ipsum dolor sit</li>
+          </ul>
+          <a class="mkk-btn mkk-btn--full" href="#destaque-prime-135">Lorem Ipsum</a>
+        </div>
+      </div>
+      <div class="mkk-modelocard">
+        <div class="mkk-modelocard__img"><img src="img/prime-x/prime-x-img-3957.jpg" alt="Prime X fechada" loading="lazy" /></div>
+        <div class="mkk-modelocard__body">
+          <span class="mkk-modelocard__sku">Lorem 03</span>
+          <h3 class="mkk-modelocard__h">Prime X</h3>
+          <ul class="mkk-modelocard__specs">
+            <li>Lorem ipsum dolor</li>
+            <li>Lorem 00 kg</li>
+            <li>Lorem ipsum dolor sit</li>
+          </ul>
+          <a class="mkk-btn mkk-btn--full" href="#destaque-prime-x">Lorem Ipsum</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 5 --
+     Destaque Prime Z: fundo escuro, texto+ficha à esquerda, foto grande à
+     direita (base: Home #04 do Yoho -- spotlight). Foto: prime-z-42 (aberta,
+     perfil, melhor enquadramento da sequência -- diferente da foto usada no
+     cartão da seção 4). -->
+<section class="mkk-section mkk-spotlight mkk-spotlight--dark mkk-full" id="destaque-prime-z">
+  <div class="mkk-spotlight__inner">
+    <div class="mkk-spotlight__text">
+      <p class="mkk-kicker mkk-kicker--onDark">Lorem 01 &middot; Flagship</p>
+      <h2 class="mkk-spotlight__h">Prime Z</h2>
+      <p class="mkk-spotlight__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <ul class="mkk-spotlight__lista">
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet consectetur</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet consectetur adipiscing</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit</li>
+      </ul>
+      <div class="mkk-spotlight__specs">
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 kg</p></div>
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 cm</p></div>
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 min</p></div>
+      </div>
+      <div class="mkk-spotlight__cta"><a class="mkk-btn" href="#orcamento">Lorem Ipsum Dolor</a></div>
+    </div>
+    <div class="mkk-spotlight__media">
+      <img src="img/prime-z/prime-z-42.jpg" alt="Prime Z aberta, perfil" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 6 --
+     Destaque Prime 135: fundo branco, espelhado (mídia à esquerda, texto à
+     direita -- .mkk-spotlight--reverse). Mídia é o VÍDEO 360° (giro completo
+     do veículo, estúdio branco), mudo/loop/playsinline, poster de fallback
+     -- ver JS iniciarVideosProprios (3-body.html) e manifesto de mídia
+     (vídeos, Prime 135). -->
+<section class="mkk-section mkk-spotlight mkk-spotlight--white mkk-spotlight--reverse mkk-full" id="destaque-prime-135">
+  <div class="mkk-spotlight__inner">
+    <div class="mkk-spotlight__text">
+      <p class="mkk-kicker">Lorem 02 &middot; Best-seller</p>
+      <h2 class="mkk-spotlight__h">Prime 135</h2>
+      <p class="mkk-spotlight__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <ul class="mkk-spotlight__lista">
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet consectetur</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet consectetur adipiscing</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit</li>
+      </ul>
+      <div class="mkk-spotlight__specs">
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 kg</p></div>
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 cm</p></div>
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 min</p></div>
+      </div>
+      <div class="mkk-spotlight__cta"><a class="mkk-btn" href="#orcamento">Lorem Ipsum Dolor</a></div>
+    </div>
+    <div class="mkk-spotlight__media">
+      <video src="video/prime-135-360-web.mp4" poster="video/prime-135-360-poster.jpg" autoplay muted loop playsinline></video>
+    </div>
+  </div>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 7 --
+     Destaque Prime X: fundo cinza-claro, MESMO layout da seção 5 (texto à
+     esquerda, foto à direita -- não é espelhado, ver decisão no
+     barracas-referencia-yoho.md item 4: "como o 5"). Foto: prime-x-img-4008
+     (aberta, escada no chão, hero_candidata). -->
+<section class="mkk-section mkk-spotlight mkk-spotlight--gray mkk-full" id="destaque-prime-x">
+  <div class="mkk-spotlight__inner">
+    <div class="mkk-spotlight__text">
+      <p class="mkk-kicker">Lorem 03 &middot; Top de linha</p>
+      <h2 class="mkk-spotlight__h">Prime X</h2>
+      <p class="mkk-spotlight__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <ul class="mkk-spotlight__lista">
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet consectetur</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet consectetur adipiscing</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit</li>
+      </ul>
+      <div class="mkk-spotlight__specs">
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 kg</p></div>
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 cm</p></div>
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 min</p></div>
+      </div>
+      <div class="mkk-spotlight__cta"><a class="mkk-btn" href="#orcamento">Lorem Ipsum Dolor</a></div>
+    </div>
+    <div class="mkk-spotlight__media">
+      <img src="img/prime-x/prime-x-img-4008.jpg" alt="Prime X aberta, escada no chão" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 8 --
+     Comparativo dos 3 modelos (base: página de produto do Yoho, tabela
+     técnica -- ver barracas-referencia-yoho.md seção 2, item 10). Campos
+     escolhidos a partir da ficha técnica real (barracas-manifesto-midia.md),
+     valores em Lorem por decisão da dona -- a copy final troca só os
+     valores, sem mexer no layout. No mobile a tabela rola na horizontal,
+     sem estourar a largura da página (.mkk-comparativo__scroll). -->
+<section class="mkk-section mkk-comparativo mkk-full" id="comparativo">
+  <div class="mkk-inner">
+    <div class="mkk-sectionhead mkk-sectionhead--center">
+      <p class="mkk-kicker mkk-kicker--onDark">Lorem ipsum dolor</p>
+      <h2 class="mkk-h2 mkk-h2--onDark">Comparativo dos Modelos</h2>
+      <span class="mkk-h2__trace mkk-h2__trace--center"></span>
+      <p class="mkk-sectionhead__p mkk-sectionhead__p--onDark">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+    </div>
+  </div>
+  <div class="mkk-comparativo__scroll">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Lorem ipsum</th>
+          <th scope="col">Prime Z</th>
+          <th scope="col">Prime 135</th>
+          <th scope="col">Prime X</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Lorem ipsum</th><td>Lorem 00 kg</td><td>Lorem 00 kg</td><td>Lorem 00 kg</td></tr>
+        <tr><th scope="row">Lorem ipsum dolor</th><td>Lorem 0 pessoas</td><td>Lorem 0 pessoas</td><td>Lorem 0 pessoas</td></tr>
+        <tr><th scope="row">Lorem ipsum</th><td>Lorem 000x000 cm</td><td>Lorem 000x000 cm</td><td>Lorem 000x000 cm</td></tr>
+        <tr><th scope="row">Lorem ipsum dolor sit</th><td>Lorem 00x00 cm</td><td>Lorem 00x00 cm</td><td>Lorem 00x00 cm</td></tr>
+        <tr><th scope="row">Lorem ipsum</th><td>Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum</td></tr>
+        <tr><th scope="row">Lorem ipsum dolor</th><td>Lorem 00D</td><td>Lorem 00D</td><td>Lorem 00D</td></tr>
+        <tr><th scope="row">Lorem ipsum</th><td>Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum dolor</td></tr>
+        <tr><th scope="row">Lorem ipsum dolor sit</th><td>Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 9 -- Grade
+     de detalhes (substitui o "estilo de vida" do Yoho, que usa
+     paisagem/trilha -- decisão da dona: só estúdio, ver
+     barracas-manifesto-midia.md). 6 fotos de detalhe DIFERENTES das da
+     seção 3: bolsos, mosquiteiro, janela, LED noturno, emborrachado e
+     interior do Prime Z. -->
+<section class="mkk-section mkk-detalhes mkk-full">
+  <div class="mkk-inner">
+    <div class="mkk-sectionhead mkk-sectionhead--center">
+      <p class="mkk-kicker">Lorem ipsum dolor</p>
+      <h2 class="mkk-h2">Lorem Ipsum Dolor Sit Amet</h2>
+      <span class="mkk-h2__trace mkk-h2__trace--center"></span>
+      <p class="mkk-sectionhead__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p>
+    </div>
+    <div class="mkk-detalhes__grid">
+      <div class="mkk-detalhes__item">
+        <img src="img/prime-x/prime-x-bolsao.jpg" alt="Bolsos internos organizadores" loading="lazy" />
+        <span class="mkk-detalhes__overlay"></span>
+        <span class="mkk-detalhes__caption"><span>Lorem</span><strong>Lorem Ipsum</strong></span>
+      </div>
+      <div class="mkk-detalhes__item">
+        <img src="img/prime-x/prime-x-mosquiteiro1.jpg" alt="Janela com mosquiteiro" loading="lazy" />
+        <span class="mkk-detalhes__overlay"></span>
+        <span class="mkk-detalhes__caption"><span>Lorem</span><strong>Lorem Ipsum</strong></span>
+      </div>
+      <div class="mkk-detalhes__item">
+        <img src="img/prime-135/prime-135-teto-plastico.jpg" alt="Janela de PVC transparente" loading="lazy" />
+        <span class="mkk-detalhes__overlay"></span>
+        <span class="mkk-detalhes__caption"><span>Lorem</span><strong>Lorem Ipsum</strong></span>
+      </div>
+      <div class="mkk-detalhes__item">
+        <img src="img/prime-x/prime-x-led-externo.jpg" alt="LED externo aceso à noite" loading="lazy" />
+        <span class="mkk-detalhes__overlay"></span>
+        <span class="mkk-detalhes__caption"><span>Lorem</span><strong>Lorem Ipsum</strong></span>
+      </div>
+      <div class="mkk-detalhes__item">
+        <img src="img/prime-x/prime-x-emborrachado.jpg" alt="Acabamento emborrachado do casco" loading="lazy" />
+        <span class="mkk-detalhes__overlay"></span>
+        <span class="mkk-detalhes__caption"><span>Lorem</span><strong>Lorem Ipsum</strong></span>
+      </div>
+      <div class="mkk-detalhes__item">
+        <img src="img/prime-z/prime-z-27.jpg" alt="Interior aconchegante do Prime Z" loading="lazy" />
+        <span class="mkk-detalhes__overlay"></span>
+        <span class="mkk-detalhes__caption"><span>Lorem</span><strong>Lorem Ipsum</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 10
+     (último arquivo do bloco A) -- chamada para o formulário, fundo escuro
+     contínuo com a Seção do Formulário nativo do RD que vem logo depois
+     (mesma técnica da Bagageiros, ver MONTAGEM.md passo 2: cor #1F1F1F
+     igual nas 3 Seções, para não sobrar "costura" clara entre elas).
+     Âncora #orcamento (os botões "Lorem Ipsum Dolor" do resto da página
+     apontam pra cá). -->
+<section class="mkk-section mkk-form-topo mkk-full" id="orcamento">
+  <h2 class="mkk-form-topo__h1">Lorem Ipsum</h2>
+  <h2 class="mkk-form-topo__h2">Dolor Sit Amet</h2>
+  <p class="mkk-form-topo__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
+</section>
+
+  <section class="mkk-section mkk-full" style="background:#1F1F1F;padding:0;position:relative;">
+    <div class="bricks--component bricks-form rd-form">
+      <form id="conversion-form" onsubmit="return false;" novalidate>
+        <div class="bricks-form__fieldset">
+          <div class="bricks-form__field">
+            <label for="pv-nome" class="bricks-form__label">Nome*</label>
+            <input id="pv-nome" class="bricks-form__input required js-text js-field-name" name="name" type="text" placeholder="Nome *" required>
+          </div>
+          <div class="bricks-form__field">
+            <label for="pv-email" class="bricks-form__label">Email*</label>
+            <input id="pv-email" class="bricks-form__input required js-email js-field-email" name="email" type="email" placeholder="Email *" required>
+          </div>
+          <div class="bricks-form__field with-select-flags">
+            <label for="pv-tel" class="bricks-form__label">Telefone*</label>
+            <div class="phone-input-group">
+              <div class="select2-container form-control phone-country">
+                <a href="javascript:void(0)" class="select2-choice" tabindex="-1">
+                  <span class="select2-chosen"><img class="flag" width="26" src="https://dk9suync0k2va.cloudfront.net/js/rd/stable/flags/4x3/br.svg" alt="BR"></span>
+                  <span class="select2-arrow"><b></b></span>
+                </a>
+              </div>
+              <input id="pv-tel" class="bricks-form__input required phone js-phone js-field-personal_phone" name="personal_phone" type="tel" placeholder="Telefone *" required>
+            </div>
+          </div>
+          <div class="bricks-form__field">
+            <label for="pv-modelo" class="bricks-form__label">Qual seu modelo de carro?*</label>
+            <input id="pv-modelo" class="bricks-form__input required js-text js-field-cf_modelo_de_veiculo" name="cf_modelo_de_veiculo" type="text" placeholder="Qual seu modelo de carro? *" required>
+          </div>
+          <div class="bricks-form__field">
+            <label for="pv-captcha" class="bricks-form__label"><span id="math_expression">9 + 7 = ?</span></label>
+            <input id="pv-captcha" class="bricks-form__input math rd-bricks-captcha" name="captcha" type="text" placeholder="9 + 7 = ?" required>
+          </div>
+        </div>
+        <div class="bricks-form__submit">
+          <button type="submit" class="bricks--component bricks--component-button rd-button" disabled title="Prévia -- envio desativado de propósito">Lorem Ipsum Dolor</button>
+        </div>
+      </form>
+    </div>
+  </section>
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 11
+     (primeiro arquivo do bloco B) -- fecha a faixa preta do Formulário,
+     mesma lógica da Bagageiros (texto curto, mesmo fundo #1F1F1F). -->
+<section class="mkk-section mkk-form-rodape mkk-full">
+  <p class="mkk-form-rodape__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 12 --
+     Perguntas frequentes, acordeão (1º item aberto, no máximo 1 por vez --
+     mesmo padrão JS já validado na Bagageiros, ver iniciarAcordeao em
+     3-body.html). 6 perguntas de consumidor final em Lorem (instalação,
+     peso do carro, garantia, prazo, etc. -- tópicos reais, texto Lorem). -->
+<section class="mkk-section mkk-faq mkk-full" id="perguntas">
+  <div class="mkk-inner">
+    <div class="mkk-faq__head">
+      <p class="mkk-kicker">Lorem ipsum dolor</p>
+      <h2 class="mkk-h2">Perguntas &amp; Respostas</h2>
+      <span class="mkk-h2__trace mkk-h2__trace--center"></span>
+    </div>
+    <div class="mkk-faq__list" data-mkk-acordeao>
+      <div class="mkk-faq__item mkk-is-open">
+        <button class="mkk-faq__q" type="button" data-mkk-faq-q>
+          <span>Lorem ipsum dolor sit amet, instalação?</span>
+          <span class="mkk-faq__icon"></span>
+        </button>
+        <div class="mkk-faq__a">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+      <div class="mkk-faq__item">
+        <button class="mkk-faq__q" type="button" data-mkk-faq-q>
+          <span>Lorem ipsum dolor, peso do carro?</span>
+          <span class="mkk-faq__icon"></span>
+        </button>
+        <div class="mkk-faq__a">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+      <div class="mkk-faq__item">
+        <button class="mkk-faq__q" type="button" data-mkk-faq-q>
+          <span>Lorem ipsum dolor sit, garantia?</span>
+          <span class="mkk-faq__icon"></span>
+        </button>
+        <div class="mkk-faq__a">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+      <div class="mkk-faq__item">
+        <button class="mkk-faq__q" type="button" data-mkk-faq-q>
+          <span>Lorem ipsum dolor sit amet, prazo?</span>
+          <span class="mkk-faq__icon"></span>
+        </button>
+        <div class="mkk-faq__a">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+      <div class="mkk-faq__item">
+        <button class="mkk-faq__q" type="button" data-mkk-faq-q>
+          <span>Lorem ipsum dolor sit amet, compatibilidade?</span>
+          <span class="mkk-faq__icon"></span>
+        </button>
+        <div class="mkk-faq__a">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+      <div class="mkk-faq__item">
+        <button class="mkk-faq__q" type="button" data-mkk-faq-q>
+          <span>Lorem ipsum dolor sit amet, envio?</span>
+          <span class="mkk-faq__icon"></span>
+        </button>
+        <div class="mkk-faq__a">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 13 --
+     rodapé simples: logo + institucional (mesmo padrão da Bagageiros). -->
+<section class="mkk-section mkk-footer mkk-full">
+  <div class="mkk-footer__logo"><img src="img/logos/logo-footer.svg" alt="MKK Off Road" /></div>
+  <nav class="mkk-footer__nav">
+    <a href="#modelos">Modelos</a>
+    <a href="#comparativo">Comparativo</a>
+    <a href="#perguntas">Perguntas</a>
+    <a href="#orcamento">Orçamento</a>
+  </nav>
+  <p class="mkk-footer__p">Rod. Poços de Caldas, 970 &#8211; Distrito Industrial, Itajubá &#8211; MG, 37504-110</p>
+</section>
+
+<script>
+// ===== 3-body.html gerado (caminhos relativos) =====
+/* Consumidor: campo "Javascript em BODY" da Edição Avançada da LP Barracas no
+   RD Station. O campo JÁ VEM com a tag de abertura e a de fechamento do
+   script no editor -- cole só o código abaixo NO MEIO delas, não repita as
+   tags. Isto é JavaScript puro (não HTML), por isso os comentários usam
+   barra-asterisco e não o comentário de HTML -- e por isso NUNCA se deve
+   digitar a sequência que fecha este tipo de comentário no meio do texto
+   explicativo (foi um bug real na Bagageiros, ver PLAYBOOK.md seção 6).
+   Cobre: vídeo de fundo próprio (autoplay/loop/mudo, seção "Destaque Prime
+   135"), acordeão de perguntas e o ajuste dos rótulos/placeholders do
+   Formulário nativo do RD. Reaproveitado de bagageiros-rd/3-body.html
+   (padrão já validado em produção) -- removido tudo que esta LP não usa
+   (carrosséis, contadores, galeria com lightbox, vídeo de fundo do
+   YouTube, depoimentos). Se o JavaScript falhar por qualquer motivo, a
+   página continua legível: o vídeo mostra o poster parado, e o acordeão
+   mostra a 1ª resposta sempre aberta. */
+(function () {
+  "use strict";
+
+  function onReady(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn);
+    } else {
+      fn();
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+   * 1) Vídeo próprio do destaque Prime 135 (autoplay/loop/mudo) -- alguns
+   *    navegadores só tocam depois de um play() explícito via JS, mesmo com
+   *    o atributo autoplay. Só toca quando a seção está visível, pra não
+   *    gastar dados/CPU com a página fechada.
+   * ------------------------------------------------------------------- */
+  function iniciarVideosProprios() {
+    var videos = document.querySelectorAll(".mkk-spotlight__media video[autoplay]");
+    videos.forEach(function (v) {
+      var tentarTocar = function () {
+        var p = v.play();
+        if (p && p.catch) { p.catch(function () {}); }
+      };
+      tentarTocar();
+      if ("IntersectionObserver" in window) {
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { tentarTocar(); } else { v.pause(); }
+          });
+        }, { threshold: 0.15 });
+        obs.observe(v);
+      }
+    });
+  }
+
+  /* ---------------------------------------------------------------------
+   * 2) Acordeão "PERGUNTAS & RESPOSTAS" -- só 1 aberto por vez.
+   * ------------------------------------------------------------------- */
+  function iniciarAcordeao() {
+    var lista = document.querySelector("[data-mkk-acordeao]");
+    if (!lista) { return; }
+    var itens = lista.querySelectorAll(".mkk-faq__item");
+
+    function fechar(item) {
+      item.classList.remove("mkk-is-open");
+      var resposta = item.querySelector(".mkk-faq__a");
+      resposta.style.maxHeight = "0px";
+    }
+    function abrir(item) {
+      item.classList.add("mkk-is-open");
+      var resposta = item.querySelector(".mkk-faq__a");
+      resposta.style.maxHeight = resposta.scrollHeight + "px";
+    }
+
+    itens.forEach(function (item) {
+      var pergunta = item.querySelector("[data-mkk-faq-q]");
+      pergunta.addEventListener("click", function () {
+        var jaAberto = item.classList.contains("mkk-is-open");
+        itens.forEach(fechar);
+        if (!jaAberto) { abrir(item); }
+      });
+    });
+    // abre o 1º item por padrão
+    if (itens.length) { abrir(itens[0]); }
+  }
+
+  /* ---------------------------------------------------------------------
+   * 3) Formulário nativo do RD (#conversion-form) -- ele nasce sem os
+   *    rótulos/placeholders desta LP (rótulos genéricos do campo). Aqui só
+   *    AJUSTA o que já existe (texto do placeholder, texto do rótulo) --
+   *    nunca mexe em name/validação/obrigatoriedade. Localiza cada campo
+   *    pelo name real (name, email, personal_phone, cf_modelo_de_veiculo) e
+   *    cai para busca por texto do rótulo se o RD mudar algum name no
+   *    futuro. Campos reais desta LP (decisão do dono): Nome, Email,
+   *    WhatsApp e Modelo de Veículo (texto livre, cf_modelo_de_veiculo já
+   *    existe na conta -- mesmo campo usado na Bagageiros, sem lista de
+   *    modelos). Se o formulário não estiver na página, não faz nada --
+   *    degrada bem. */
+  function ajustarFormularioRD() {
+    var form = document.getElementById("conversion-form");
+    if (!form) { return; }
+
+    function porNome(name) {
+      return form.querySelector('[name="' + name + '"]');
+    }
+    function porRotulo(trecho) {
+      var labels = form.querySelectorAll(".bricks-form__label");
+      for (var i = 0; i < labels.length; i++) {
+        if (labels[i].textContent.toLowerCase().indexOf(trecho) !== -1) {
+          var forId = labels[i].getAttribute("for");
+          if (forId) {
+            var campoPorId = document.getElementById(forId);
+            if (campoPorId) { return campoPorId; }
+          }
+          var wrap = labels[i].closest(".bricks-form__field");
+          if (wrap) { return wrap.querySelector("input, textarea, select"); }
+        }
+      }
+      return null;
+    }
+    function trocarRotulo(campo, textoNovo) {
+      if (!campo) { return; }
+      var wrap = campo.closest(".bricks-form__field");
+      var label = wrap ? wrap.querySelector(".bricks-form__label") : null;
+      if (!label) { return; }
+      var temAsterisco = label.textContent.indexOf("*") !== -1;
+      label.textContent = textoNovo + (temAsterisco ? "*" : "");
+    }
+
+    var campoNome = porNome("name") || porRotulo("nome");
+    if (campoNome) {
+      campoNome.setAttribute("placeholder", "Insira seu Nome");
+      trocarRotulo(campoNome, "Nome");
+    }
+
+    var campoEmail = porNome("email") || porRotulo("email");
+    if (campoEmail) {
+      campoEmail.setAttribute("placeholder", "Seu melhor e-mail");
+      trocarRotulo(campoEmail, "Email");
+    }
+
+    var campoTelefone = porNome("personal_phone") || porRotulo("telefone");
+    if (campoTelefone) {
+      campoTelefone.setAttribute("placeholder", "(   ) ______-____");
+      trocarRotulo(campoTelefone, "WhatsApp");
+    }
+
+    var campoModelo = porNome("cf_modelo_de_veiculo") || porRotulo("modelo");
+    if (campoModelo) {
+      campoModelo.setAttribute("placeholder", "Ex.: Hilux 2020");
+      trocarRotulo(campoModelo, "Modelo de Veículo");
+    }
+
+    // marca o campo da conta anti-robô como "linha inteira" pro CSS --
+    // reforço pra navegador sem suporte a :has() (ver 1-css.css, .mkk-form-full)
+    var campoCaptcha = form.querySelector(".rd-bricks-captcha, [name='captcha']");
+    if (campoCaptcha) {
+      var wrapCaptcha = campoCaptcha.closest(".bricks-form__field");
+      if (wrapCaptcha) { wrapCaptcha.classList.add("mkk-form-full"); }
+    }
+  }
+
+  onReady(function () {
+    iniciarVideosProprios();
+    iniciarAcordeao();
+    ajustarFormularioRD();
+    // o Formulário nativo do RD pode montar um pouco depois do resto da
+    // página (telefone internacional, conta anti-robô) -- tenta de novo uma
+    // vez; ajustarFormularioRD não duplica nada, só reescreve texto.
+    window.setTimeout(ajustarFormularioRD, 1200);
+  });
+})();
+
+</script>
+</body>
+</html>
