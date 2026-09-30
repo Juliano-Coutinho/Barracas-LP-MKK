@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Prévia -- LP Barracas MKK Off Road (Prime Z / Prime 135 / Prime X)</title>
+<title>Prévia -- LP Barracas MKK Off Road (Prime, Atlas e Stealth)</title>
 <!--
   Gerado por gerar_pacote.py -- NÃO editar à mão (as mudanças se perdem no próximo
   "python gerar_pacote.py"). Edite as fontes em secoes/, 1-css.css, 3-body.html.
@@ -20,12 +20,13 @@ html, body { margin:0; background:#fff; }
 </style>
 <style>
 /* ===== 1-css.css gerado (caminhos relativos, img/ e video/ ao lado deste arquivo) ===== */
-/* Consumidor: campo "CSS" da Edição Avançada da LP Barracas (Prime Z / Prime 135 / Prime X)
-   no RD Station Marketing. Cole este arquivo inteiro nesse campo. Gerado por gerar_pacote.py
+/* Consumidor: campo "CSS" da Edição Avançada da LP Barracas (8 modelos em 3 linhas: Prime, Atlas e
+   Stealth) no RD Station Marketing. Cole este arquivo inteiro nesse campo. Gerado por gerar_pacote.py
    a partir das fontes em docs/integracoes/rd-station/landing-pages/barracas-rd/.
    LP NOVA (não é réplica de página existente) -- layout inspirado no ritmo de seções do
    Yoho Kamper (ver barracas-referencia-yoho.md), identidade visual 100% MKK (tokens e
    componentes reaproveitados de bagageiros-rd/1-css.css, já validados em produção no RD).
+   Celular primeiro (PLAYBOOK seção 1): as decisões de layout partem de 390 px; o desktop é a adaptação.
    Todas as classes usam o prefixo mkk- para não colidir com o CSS do próprio RD. */
 
 /* ---------- fontes ---------- */
@@ -125,7 +126,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .mkk-header { background: var(--mkk-dark); padding: 16px 20px; }
 .mkk-header__inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .mkk-header__logo { width: 56px; flex: 0 0 auto; }
-.mkk-header__nav { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
+.mkk-header__nav { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
 .mkk-header__link {
   color: #fff; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .6px;
   opacity: .85; transition: opacity .2s, color .2s;
@@ -166,6 +167,16 @@ html, body { max-width: 100%; overflow-x: hidden; }
   margin-top: 22px; max-width: 520px;
 }
 .mkk-hero__actions { display: flex; gap: 16px; margin-top: 34px; flex-wrap: wrap; }
+/* atalhos das 3 linhas (Prime / Atlas / Stealth) -- pílulas que rolam até o grupo da linha */
+.mkk-hero__linhas { list-style: none; margin: 26px 0 0; padding: 0; display: flex; gap: 10px; flex-wrap: wrap; }
+.mkk-hero__linha {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px;
+  border: 1px solid rgba(255,255,255,.35); border-radius: 999px; background: rgba(0,0,0,.35);
+  color: #fff; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  transition: border-color .2s, color .2s;
+}
+.mkk-hero__linha:hover, .mkk-hero__linha:focus { border-color: var(--mkk-gold); color: var(--mkk-gold); }
+.mkk-hero__nova { font-size: 10px; letter-spacing: .8px; color: #1a1a1a; background: var(--mkk-gold); border-radius: 4px; padding: 2px 6px; }
 @media (max-width: 1024px) {
   .mkk-hero__title { font-size: 56px; }
 }
@@ -174,6 +185,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .mkk-hero__title { font-size: 34px; letter-spacing: -.5px; }
   .mkk-hero__sub { font-size: 14px; margin-top: 14px; }
   .mkk-hero__actions { margin-top: 20px; }
+  .mkk-hero__linhas { margin-top: 18px; gap: 8px; }
+  .mkk-hero__linha { padding: 0 14px; }
 }
 
 /* =========================================================================
@@ -203,39 +216,83 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .mkk-porque__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
+  /* celular primeiro: 2 colunas compactas (eram 6 cartões empilhados, ~2.100 px de rolagem) */
   .mkk-porque { padding: 40px 16px; }
-  .mkk-porque__grid { grid-template-columns: 1fr; gap: 14px; margin-top: 28px; }
+  .mkk-porque__grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 28px; }
+  .mkk-porque__body { padding: 12px 12px 14px; }
+  .mkk-porque__tag { font-size: 10px; padding: 2px 6px; margin-bottom: 8px; }
+  .mkk-porque__h { font-size: 13px; }
+  .mkk-porque__p { font-size: 11.5px; line-height: 1.45; margin-top: 6px; }
 }
 
 /* =========================================================================
-   04. OS TRÊS MODELOS -- cartão de produto reutilizável
+   04. OS OITO MODELOS -- 3 linhas (Prime, Atlas, Stealth), cartão de produto reutilizável.
+   Celular primeiro: cada linha é um carrossel horizontal com scroll-snap (a borda do próximo
+   cartão fica à mostra, sem JS); no desktop, grade de 3 colunas com a linha Atlas (2 modelos)
+   centralizada.
    ========================================================================= */
 .mkk-modelos { background: #fff; padding: 70px 20px; }
-.mkk-modelos__grid {
-  max-width: 1140px; margin: 44px auto 0; display: grid;
-  grid-template-columns: repeat(3, 1fr); gap: 24px;
+.mkk-linha { max-width: 1140px; margin: 44px auto 0; }
+.mkk-linha + .mkk-linha { margin-top: 52px; }
+.mkk-linha__head {
+  display: flex; align-items: center; gap: 12px; padding-bottom: 14px; margin-bottom: 22px;
+  border-bottom: 2px solid #ece9e1;
 }
+.mkk-linha__h { font-size: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: -.3px; line-height: 1; color: var(--mkk-dark); }
+.mkk-linha__nova {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  color: #1a1a1a; background: var(--mkk-gold); border-radius: 4px; padding: 4px 8px;
+}
+.mkk-linha__count { margin-left: auto; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #8a8a8a; white-space: nowrap; }
+.mkk-modelos__grid { display: flex; gap: 24px; justify-content: center; }
 .mkk-modelocard {
+  flex: 0 0 calc((100% - 48px) / 3); min-width: 0;
   background: var(--mkk-dark); border-radius: 14px; overflow: hidden;
   border: 1px solid rgba(255,255,255,.08);
 }
-.mkk-modelocard__img { aspect-ratio: 1/1; overflow: hidden; background: #000; }
+.mkk-modelocard__img { position: relative; aspect-ratio: 1/1; overflow: hidden; background: #000; }
 .mkk-modelocard__img img { width: 100%; height: 100%; object-fit: cover; }
+.mkk-modelocard__img--esq img { object-position: 22% center; } /* foto em paisagem com a barraca à esquerda (Stealth 145) */
+.mkk-modelocard__badge {
+  position: absolute; top: 12px; left: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: #1a1a1a; background: var(--mkk-gold); border-radius: 4px; padding: 4px 8px;
+}
 .mkk-modelocard__body { padding: 22px 22px 26px; }
+.mkk-modelocard__top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .mkk-modelocard__sku { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--mkk-gold); }
-.mkk-modelocard__h { font-size: 26px; font-weight: 800; text-transform: uppercase; color: #fff; margin-top: 6px; }
+.mkk-modelocard__cap {
+  font-size: 12px; font-weight: 600; color: #fff; background: rgba(255,255,255,.12);
+  border-radius: 999px; padding: 3px 10px; white-space: nowrap;
+}
+.mkk-modelocard__h { font-size: 26px; font-weight: 800; text-transform: uppercase; color: #fff; margin-top: 8px; line-height: 1.1; }
 .mkk-modelocard__specs { list-style: none; margin: 16px 0 22px; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .mkk-modelocard__specs li { font-size: 13px; color: rgba(255,255,255,.72); padding-left: 16px; position: relative; }
 .mkk-modelocard__specs li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--mkk-gold); }
 @media (max-width: 900px) {
-  .mkk-modelos__grid { grid-template-columns: 1fr; max-width: 460px; }
+  /* carrossel: rola dentro do próprio bloco, a página não anda de lado */
+  .mkk-modelos__grid {
+    justify-content: flex-start; gap: 14px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    margin: 0 -20px; padding: 2px 20px 8px; scroll-padding-left: 20px;
+    scrollbar-width: thin; scrollbar-color: var(--mkk-gold) #eee;
+  }
+  .mkk-modelocard { flex: 0 0 78%; max-width: 320px; scroll-snap-align: start; }
+  .mkk-linha__h { font-size: 24px; }
 }
 @media (max-width: 600px) {
   .mkk-modelos { padding: 40px 16px; }
+  .mkk-linha { margin-top: 30px; }
+  .mkk-linha + .mkk-linha { margin-top: 34px; }
+  .mkk-linha__head { margin-bottom: 16px; padding-bottom: 12px; }
+  .mkk-linha__h { font-size: 22px; }
+  .mkk-modelos__grid { margin: 0 -16px; padding: 2px 16px 8px; scroll-padding-left: 16px; }
+  .mkk-modelocard__body { padding: 18px 18px 20px; }
+  .mkk-modelocard__h { font-size: 22px; }
+  .mkk-modelocard__specs { margin: 12px 0 16px; }
 }
 
 /* =========================================================================
-   05/06/07. SPOTLIGHT -- destaque de 1 modelo (texto+ficha / foto ou vídeo)
+   05/06/07/7b/7c. SPOTLIGHT -- destaque de 1 modelo (Prime) ou de 1 linha (Atlas, Stealth): texto+ficha / foto, vídeo ou galeria
    ========================================================================= */
 .mkk-spotlight { padding: 80px 20px; }
 .mkk-spotlight--dark { background: var(--mkk-dark); }
@@ -283,26 +340,82 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .mkk-spotlight__spec-value { font-size: 13px; }
 }
 
+/* galeria da LINHA (Atlas/Stealth): 3 fotos no lugar da foto única do destaque.
+   Desktop = mosaico (1 grande + 2 pequenas); celular = carrossel com scroll-snap. */
+.mkk-galeria {
+  flex: 0 0 54%; max-width: 54%; min-width: 0; aspect-ratio: 4/3;
+  display: grid; grid-template-columns: 1.6fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px;
+}
+.mkk-galeria img { width: 100%; height: 100%; min-height: 0; object-fit: cover; display: block; border-radius: 12px; background: #000; }
+.mkk-galeria__main { grid-row: 1 / span 2; }
+@media (max-width: 1024px) {
+  .mkk-galeria { flex: 0 0 auto; width: 100%; max-width: 100%; aspect-ratio: 16/10; }
+}
+@media (max-width: 767px) {
+  .mkk-galeria {
+    display: flex; aspect-ratio: auto; gap: 10px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    width: calc(100% + 32px); max-width: none; margin: 0 -16px; padding: 0 16px 6px; scroll-padding-left: 16px;
+    scrollbar-width: thin; scrollbar-color: var(--mkk-gold) rgba(128,128,128,.25);
+  }
+  .mkk-galeria img { flex: 0 0 82%; width: 82%; height: auto; aspect-ratio: 5/4; scroll-snap-align: start; }
+}
+
 /* =========================================================================
-   08. COMPARATIVO -- tabela dos 3 modelos
+   08. COMPARATIVO -- tabela dos 8 modelos (3 linhas). Celular primeiro: 8 colunas não cabem em
+   390 px, então a tabela rola na horizontal DENTRO do bloco, com a 1ª coluna (rótulos) presa
+   (sticky) e uma dica de rolagem. Sem estouro da página.
    ========================================================================= */
 .mkk-comparativo { background: var(--mkk-dark); padding: 70px 20px; }
-.mkk-comparativo__scroll { max-width: 1140px; margin: 40px auto 0; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; }
-.mkk-comparativo table { width: 100%; min-width: 640px; border-collapse: collapse; background: #262626; }
+.mkk-comparativo__hint { display: none; margin: 18px 0 0; text-align: center; font-size: 12px; font-weight: 600; letter-spacing: .4px; color: var(--mkk-gold); }
+.mkk-comparativo__scroll {
+  max-width: 1240px; margin: 40px auto 0; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain; border-radius: 12px; background: #262626;
+}
+.mkk-comparativo__scroll:focus-visible { outline: 2px solid var(--mkk-gold); outline-offset: 2px; }
+.mkk-comparativo table { width: 100%; border-collapse: separate; border-spacing: 0; background: #262626; }
 .mkk-comparativo th, .mkk-comparativo td {
-  text-align: left; padding: 16px 18px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,.08);
+  text-align: center; padding: 14px 8px; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,.08);
   white-space: nowrap;
 }
 .mkk-comparativo thead th {
   background: #161616; color: var(--mkk-gold); text-transform: uppercase; letter-spacing: .8px; font-size: 12px;
 }
-.mkk-comparativo tbody th { color: rgba(255,255,255,.55); font-weight: 500; white-space: normal; }
+.mkk-comparativo .mkk-comp__grupos th, .mkk-comparativo .mkk-comp__grupos td {
+  background: #101010; color: rgba(255,255,255,.5); font-size: 10px; letter-spacing: 1.6px; padding: 10px 8px 8px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+/* nome da linha alinhado à esquerda do grupo: com o scroll na ponta esquerda ele nunca fica escondido */
+.mkk-comparativo .mkk-comp__grupos th { text-align: left; padding-left: 12px; }
+.mkk-comp__grp { position: sticky; left: 162px; display: inline-block; } /* fica à vista enquanto o grupo aparece; 162 = largura da 1ª coluna + respiro */
+.mkk-comparativo tbody th { color: rgba(255,255,255,.55); font-weight: 500; }
 .mkk-comparativo tbody td { color: #fff; font-weight: 600; }
 .mkk-comparativo tbody tr:last-child th, .mkk-comparativo tbody tr:last-child td { border-bottom: none; }
+.mkk-comparativo .mkk-comp__sep { border-left: 1px solid rgba(255,255,255,.14); }
+/* 1ª coluna presa: rótulos sempre à vista enquanto a tabela rola */
+.mkk-comparativo th:first-child, .mkk-comparativo td:first-child {
+  position: sticky; left: 0; z-index: 2; text-align: left; padding-left: 16px; min-width: 150px;
+  white-space: normal; background: #262626; box-shadow: 1px 0 0 rgba(255,255,255,.14);
+}
+.mkk-comparativo thead th:first-child { background: #161616; }
+.mkk-comparativo .mkk-comp__grupos td:first-child { background: #101010; }
+@media (max-width: 900px) {
+  .mkk-comparativo__hint { display: block; }
+  .mkk-comparativo th, .mkk-comparativo td { padding: 13px 14px; }
+  .mkk-comparativo .mkk-comp__grupos th, .mkk-comparativo .mkk-comp__grupos td { padding: 10px 12px 8px; }
+}
 @media (max-width: 767px) {
-  .mkk-comparativo { padding: 40px 0 40px 16px; }
-  .mkk-comparativo__scroll { margin-top: 26px; }
-  .mkk-comparativo .mkk-inner { padding-right: 16px; }
+  .mkk-comparativo { padding: 40px 0; }
+  .mkk-comparativo .mkk-inner { padding: 0 16px; }
+  .mkk-comparativo__scroll { margin-top: 14px; border-radius: 0; }
+  /* colunas enxutas: em 390 px cabem 2 modelos inteiros e a borda do 3º, que mostra que rola */
+  .mkk-comparativo th, .mkk-comparativo td { padding: 13px 8px; font-size: 11.5px; }
+  .mkk-comparativo thead th { font-size: 11px; letter-spacing: .5px; }
+  .mkk-comp__grp { left: 112px; }
+  .mkk-comparativo th:first-child, .mkk-comparativo td:first-child {
+    min-width: 100px; max-width: 100px; padding-left: 12px; padding-right: 6px; font-size: 11px;
+    box-shadow: 1px 0 0 rgba(255,255,255,.16), 6px 0 8px -4px rgba(0,0,0,.6);
+  }
 }
 
 /* =========================================================================
@@ -327,8 +440,12 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .mkk-detalhes__caption strong { display: block; font-size: 15px; font-weight: 700; margin-top: 2px; }
 @media (max-width: 900px) { .mkk-detalhes__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) {
+  /* celular primeiro: 2 colunas (eram 6 fotos empilhadas, ~2.150 px de rolagem) */
   .mkk-detalhes { padding: 40px 16px; }
-  .mkk-detalhes__grid { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
+  .mkk-detalhes__grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 28px; }
+  .mkk-detalhes__caption { padding: 10px 12px; }
+  .mkk-detalhes__caption span { font-size: 10px; }
+  .mkk-detalhes__caption strong { font-size: 13px; }
 }
 
 /* =========================================================================
@@ -473,14 +590,18 @@ html, body { max-width: 100%; overflow-x: hidden; }
 </head>
 <body>
 <!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 1 -- Header:
-     logo + 3 âncoras + botão que rola até o formulário. Sem sticky (decisão:
+     logo + 5 âncoras (as 3 linhas Prime/Atlas/Stealth, Comparativo e Perguntas;
+     o menu some abaixo de 900 px e o celular usa os atalhos das linhas no hero)
+     + botão que rola até o formulário. Sem sticky (decisão:
      não se aplica -- não há barra de navegação própria hoje, ver
      barracas-referencia-yoho.md seção 5). -->
 <section class="mkk-section mkk-header mkk-full">
   <div class="mkk-header__inner">
     <a href="#topo" class="mkk-header__logo"><img src="img/logos/logo-header.svg" alt="MKK Off Road" /></a>
     <ul class="mkk-header__nav">
-      <li><a class="mkk-header__link" href="#modelos">Modelos</a></li>
+      <li><a class="mkk-header__link" href="#linha-prime">Prime</a></li>
+      <li><a class="mkk-header__link" href="#linha-atlas">Atlas</a></li>
+      <li><a class="mkk-header__link" href="#linha-stealth">Stealth</a></li>
       <li><a class="mkk-header__link" href="#comparativo">Comparativo</a></li>
       <li><a class="mkk-header__link" href="#perguntas">Perguntas</a></li>
     </ul>
@@ -491,7 +612,11 @@ html, body { max-width: 100%; overflow-x: hidden; }
 <!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 2 -- Hero
      escuro, foto do Prime Z (contraluz dramático, ver hero_candidata no
      manifesto). Título gigante estilo Yoho (peso 900, tracking apertado) +
-     2 CTAs: 1 rola até o formulário, 1 rola até "os modelos". -->
+     2 CTAs: 1 rola até o formulário, 1 rola até "os modelos". Abaixo dos CTAs, as
+     3 LINHAS (Prime, Atlas, Stealth -- nomes reais) como atalhos para o grupo
+     de cada linha na seção de modelos: mostra logo de cara que a LP é de TODAS as
+     barracas e serve de navegação no celular (o menu do header some abaixo de
+     900 px). A Prime leva o selo "Nova". -->
 <section class="mkk-section mkk-hero mkk-full" id="topo">
   <div class="mkk-hero__inner">
     <div class="mkk-hero__content">
@@ -502,6 +627,11 @@ html, body { max-width: 100%; overflow-x: hidden; }
         <a class="mkk-btn" href="#orcamento">Lorem Ipsum Dolor</a>
         <a class="mkk-btn mkk-btn--ghost" href="#modelos">Lorem Ipsum</a>
       </div>
+      <ul class="mkk-hero__linhas" aria-label="Linhas de barracas">
+        <li><a class="mkk-hero__linha" href="#linha-prime">Prime <span class="mkk-hero__nova">Nova</span></a></li>
+        <li><a class="mkk-hero__linha" href="#linha-atlas">Atlas</a></li>
+        <li><a class="mkk-hero__linha" href="#linha-stealth">Stealth</a></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -572,26 +702,43 @@ html, body { max-width: 100%; overflow-x: hidden; }
   </div>
 </section>
 
-<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 4 -- "Os
-     três modelos", cartão de produto reutilizável (base: página de produto
-     do Yoho, cartão de modelo -- ver barracas-referencia-yoho.md seção 2).
-     Fotos fechada/no carro, ângulo 3/4 (uso_sugerido=cartao_modelo no
-     manifesto). Nomes reais dos 3 modelos; specs em Lorem. Botão de cada
-     cartão rola até o destaque do próprio modelo (seções 05/06/07). -->
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 4 -- "Os oito
+     modelos", agrupados por LINHA (Prime, Atlas, Stealth), cada linha com o seu
+     cabeçalho e o seu carrossel. Decidido em 390 px (celular primeiro, PLAYBOOK
+     seção 1): no celular cada linha é um carrossel horizontal com scroll-snap
+     (borda do próximo cartão à mostra, sem JS); no desktop, grade de 3 colunas
+     (a linha Atlas, com 2 modelos, fica centralizada). Cartão de produto
+     reutilizável (base: página de produto do Yoho -- barracas-referencia-yoho.md
+     seção 2). Nomes reais das linhas e dos modelos e a CAPACIDADE (pessoas) são
+     reais; o resto do texto é Lorem. Capacidade do Prime Z: o pacote ainda não a
+     tem, fica "Lorem 0 pessoas" (mesmo valor da tabela do comparativo). Fotos:
+     Prime = estúdio de 29/09 (uso_sugerido=cartao_modelo no manifesto);
+     Atlas/Stealth = fotos da LP antiga (barracas-manifesto-midia.md, seção
+     "Linhas Atlas e Stealth") -- a foto de cada cartão é da GALERIA DA LINHA, não
+     está confirmado que seja exatamente aquele modelo. O botão de cada cartão
+     rola até o destaque do próprio modelo (Prime) ou da linha (Atlas/Stealth). -->
 <section class="mkk-section mkk-modelos mkk-full" id="modelos">
   <div class="mkk-inner">
     <div class="mkk-sectionhead mkk-sectionhead--center">
       <p class="mkk-kicker">Lorem ipsum dolor</p>
-      <h2 class="mkk-h2">Os Três Modelos</h2>
+      <h2 class="mkk-h2">Os Oito Modelos</h2>
       <span class="mkk-h2__trace mkk-h2__trace--center"></span>
       <p class="mkk-sectionhead__p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p>
     </div>
+  </div>
+
+  <div class="mkk-linha" id="linha-prime">
+    <div class="mkk-linha__head">
+      <h3 class="mkk-linha__h">Linha Prime</h3>
+      <span class="mkk-linha__nova">Nova</span>
+      <span class="mkk-linha__count">3 modelos</span>
+    </div>
     <div class="mkk-modelos__grid">
       <div class="mkk-modelocard">
-        <div class="mkk-modelocard__img"><img src="img/prime-z/prime-z-01.jpg" alt="Prime Z fechada" loading="lazy" /></div>
+        <div class="mkk-modelocard__img"><img src="img/prime-z/prime-z-01.jpg" alt="Prime Z fechada" loading="lazy" /><span class="mkk-modelocard__badge">Nova</span></div>
         <div class="mkk-modelocard__body">
-          <span class="mkk-modelocard__sku">Lorem 01</span>
-          <h3 class="mkk-modelocard__h">Prime Z</h3>
+          <div class="mkk-modelocard__top"><span class="mkk-modelocard__sku">Lorem 01</span><span class="mkk-modelocard__cap">Lorem 0 pessoas</span></div>
+          <h4 class="mkk-modelocard__h">Prime Z</h4>
           <ul class="mkk-modelocard__specs">
             <li>Lorem ipsum dolor</li>
             <li>Lorem 00 kg</li>
@@ -601,10 +748,10 @@ html, body { max-width: 100%; overflow-x: hidden; }
         </div>
       </div>
       <div class="mkk-modelocard">
-        <div class="mkk-modelocard__img"><img src="img/prime-135/prime-135-img-3911.jpg" alt="Prime 135 fechada" loading="lazy" /></div>
+        <div class="mkk-modelocard__img"><img src="img/prime-135/prime-135-img-3911.jpg" alt="Prime 135 fechada" loading="lazy" /><span class="mkk-modelocard__badge">Nova</span></div>
         <div class="mkk-modelocard__body">
-          <span class="mkk-modelocard__sku">Lorem 02</span>
-          <h3 class="mkk-modelocard__h">Prime 135</h3>
+          <div class="mkk-modelocard__top"><span class="mkk-modelocard__sku">Lorem 02</span><span class="mkk-modelocard__cap">2 pessoas</span></div>
+          <h4 class="mkk-modelocard__h">Prime 135</h4>
           <ul class="mkk-modelocard__specs">
             <li>Lorem ipsum dolor</li>
             <li>Lorem 00 kg</li>
@@ -614,16 +761,99 @@ html, body { max-width: 100%; overflow-x: hidden; }
         </div>
       </div>
       <div class="mkk-modelocard">
-        <div class="mkk-modelocard__img"><img src="img/prime-x/prime-x-img-3957.jpg" alt="Prime X fechada" loading="lazy" /></div>
+        <div class="mkk-modelocard__img"><img src="img/prime-x/prime-x-img-3957.jpg" alt="Prime X fechada" loading="lazy" /><span class="mkk-modelocard__badge">Nova</span></div>
         <div class="mkk-modelocard__body">
-          <span class="mkk-modelocard__sku">Lorem 03</span>
-          <h3 class="mkk-modelocard__h">Prime X</h3>
+          <div class="mkk-modelocard__top"><span class="mkk-modelocard__sku">Lorem 03</span><span class="mkk-modelocard__cap">3 pessoas</span></div>
+          <h4 class="mkk-modelocard__h">Prime X</h4>
           <ul class="mkk-modelocard__specs">
             <li>Lorem ipsum dolor</li>
             <li>Lorem 00 kg</li>
             <li>Lorem ipsum dolor sit</li>
           </ul>
           <a class="mkk-btn mkk-btn--full" href="#destaque-prime-x">Lorem Ipsum</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mkk-linha" id="linha-atlas">
+    <div class="mkk-linha__head">
+      <h3 class="mkk-linha__h">Linha Atlas</h3>
+      <span class="mkk-linha__count">2 modelos</span>
+    </div>
+    <div class="mkk-modelos__grid">
+      <div class="mkk-modelocard">
+        <div class="mkk-modelocard__img"><img src="img/atlas/atlas-cover.jpg" alt="Barraca Atlas 160 aberta" loading="lazy" /></div>
+        <div class="mkk-modelocard__body">
+          <div class="mkk-modelocard__top"><span class="mkk-modelocard__sku">Lorem 04</span><span class="mkk-modelocard__cap">3 pessoas</span></div>
+          <h4 class="mkk-modelocard__h">Atlas 160</h4>
+          <ul class="mkk-modelocard__specs">
+            <li>Lorem ipsum dolor</li>
+            <li>Lorem 00 kg</li>
+            <li>Lorem ipsum dolor sit</li>
+          </ul>
+          <a class="mkk-btn mkk-btn--full" href="#destaque-linha-atlas">Lorem Ipsum</a>
+        </div>
+      </div>
+      <div class="mkk-modelocard">
+        <div class="mkk-modelocard__img"><img src="img/atlas/atlas-galeria-02.jpg" alt="Barraca Atlas 210 aberta, vista lateral" loading="lazy" /></div>
+        <div class="mkk-modelocard__body">
+          <div class="mkk-modelocard__top"><span class="mkk-modelocard__sku">Lorem 05</span><span class="mkk-modelocard__cap">4 pessoas</span></div>
+          <h4 class="mkk-modelocard__h">Atlas 210</h4>
+          <ul class="mkk-modelocard__specs">
+            <li>Lorem ipsum dolor</li>
+            <li>Lorem 00 kg</li>
+            <li>Lorem ipsum dolor sit</li>
+          </ul>
+          <a class="mkk-btn mkk-btn--full" href="#destaque-linha-atlas">Lorem Ipsum</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mkk-linha" id="linha-stealth">
+    <div class="mkk-linha__head">
+      <h3 class="mkk-linha__h">Linha Stealth</h3>
+      <span class="mkk-linha__count">3 modelos</span>
+    </div>
+    <div class="mkk-modelos__grid">
+      <div class="mkk-modelocard">
+        <div class="mkk-modelocard__img"><img src="img/stealth/stealth-cover.jpg" alt="Barraca Stealth 90 aberta" loading="lazy" /></div>
+        <div class="mkk-modelocard__body">
+          <div class="mkk-modelocard__top"><span class="mkk-modelocard__sku">Lorem 06</span><span class="mkk-modelocard__cap">2 pessoas</span></div>
+          <h4 class="mkk-modelocard__h">Stealth 90</h4>
+          <ul class="mkk-modelocard__specs">
+            <li>Lorem ipsum dolor</li>
+            <li>Lorem 00 kg</li>
+            <li>Lorem ipsum dolor sit</li>
+          </ul>
+          <a class="mkk-btn mkk-btn--full" href="#destaque-linha-stealth">Lorem Ipsum</a>
+        </div>
+      </div>
+      <div class="mkk-modelocard">
+        <div class="mkk-modelocard__img"><img src="img/stealth/stealth-galeria-02.jpg" alt="Barraca Stealth 130 aberta" loading="lazy" /></div>
+        <div class="mkk-modelocard__body">
+          <div class="mkk-modelocard__top"><span class="mkk-modelocard__sku">Lorem 07</span><span class="mkk-modelocard__cap">2 pessoas</span></div>
+          <h4 class="mkk-modelocard__h">Stealth 130</h4>
+          <ul class="mkk-modelocard__specs">
+            <li>Lorem ipsum dolor</li>
+            <li>Lorem 00 kg</li>
+            <li>Lorem ipsum dolor sit</li>
+          </ul>
+          <a class="mkk-btn mkk-btn--full" href="#destaque-linha-stealth">Lorem Ipsum</a>
+        </div>
+      </div>
+      <div class="mkk-modelocard">
+        <div class="mkk-modelocard__img mkk-modelocard__img--esq"><img src="img/stealth/stealth-card.jpg" alt="Barraca Stealth 145 aberta" loading="lazy" /></div>
+        <div class="mkk-modelocard__body">
+          <div class="mkk-modelocard__top"><span class="mkk-modelocard__sku">Lorem 08</span><span class="mkk-modelocard__cap">2 a 3 pessoas</span></div>
+          <h4 class="mkk-modelocard__h">Stealth 145</h4>
+          <ul class="mkk-modelocard__specs">
+            <li>Lorem ipsum dolor</li>
+            <li>Lorem 00 kg</li>
+            <li>Lorem ipsum dolor sit</li>
+          </ul>
+          <a class="mkk-btn mkk-btn--full" href="#destaque-linha-stealth">Lorem Ipsum</a>
         </div>
       </div>
     </div>
@@ -721,13 +951,91 @@ html, body { max-width: 100%; overflow-x: hidden; }
   </div>
 </section>
 
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 7b -- Destaque
+     da LINHA ATLAS (Atlas 160 e Atlas 210), no mesmo padrão visual dos destaques
+     das Prime (05/06/07): fundo escuro, texto+ficha à esquerda. Um destaque por
+     LINHA antiga (não por modelo) para a página não crescer no celular -- decisão
+     do dono, 30/09. Mídia = mini galeria de 3 fotos reais da LP antiga
+     (.mkk-galeria): mosaico no desktop, carrossel com scroll-snap no celular.
+     Reais: nome da linha, nomes dos modelos e a capacidade (3 a 4 pessoas);
+     o resto é Lorem. Fotos: atlas-galeria-04 (aberta com mosquiteiro), -03
+     (retrato com escada) e -05 (interior) -- ver barracas-manifesto-midia.md. -->
+<section class="mkk-section mkk-spotlight mkk-spotlight--dark mkk-full" id="destaque-linha-atlas">
+  <div class="mkk-spotlight__inner">
+    <div class="mkk-spotlight__text">
+      <p class="mkk-kicker mkk-kicker--onDark">Lorem 04 &middot; Atlas 160 e Atlas 210</p>
+      <h2 class="mkk-spotlight__h">Linha Atlas</h2>
+      <p class="mkk-spotlight__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <ul class="mkk-spotlight__lista">
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet consectetur</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet consectetur adipiscing</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit</li>
+      </ul>
+      <div class="mkk-spotlight__specs">
+        <div><p class="mkk-spotlight__spec-label">Capacidade</p><p class="mkk-spotlight__spec-value">3 a 4 pessoas</p></div>
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 cm</p></div>
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 min</p></div>
+      </div>
+      <div class="mkk-spotlight__cta"><a class="mkk-btn" href="#orcamento">Lorem Ipsum Dolor</a></div>
+    </div>
+    <div class="mkk-galeria" role="group" aria-label="Fotos da linha Atlas">
+      <img class="mkk-galeria__main" src="img/atlas/atlas-galeria-04.jpg" alt="Barraca Atlas aberta com mosquiteiro" loading="lazy" />
+      <img src="img/atlas/atlas-galeria-03.jpg" alt="Barraca Atlas aberta, escada e bolsas laterais" loading="lazy" />
+      <img src="img/atlas/atlas-galeria-05.jpg" alt="Interior da Atlas, teto rígido e janelas" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 7c -- Destaque
+     da LINHA STEALTH (Stealth 90, 130 e 145), espelhado como o destaque do Prime
+     135 (fundo branco, mídia à esquerda, texto à direita -- .mkk-spotlight--reverse).
+     Um destaque por LINHA antiga, não por modelo (decisão do dono, 30/09, para a
+     página não crescer no celular). Mídia = mini galeria de 3 fotos reais da LP
+     antiga (.mkk-galeria): mosaico no desktop, carrossel com scroll-snap no
+     celular. Reais: nome da linha, nomes dos modelos e a capacidade (2 a 3
+     pessoas); o resto é Lorem. Fotos: stealth-galeria-01 (perfil largo, foto de maior
+     resolução da linha), -04 e -05 (interiores) -- ver barracas-manifesto-midia.md. -->
+<section class="mkk-section mkk-spotlight mkk-spotlight--white mkk-spotlight--reverse mkk-full" id="destaque-linha-stealth">
+  <div class="mkk-spotlight__inner">
+    <div class="mkk-spotlight__text">
+      <p class="mkk-kicker">Lorem 05 &middot; Stealth 90, 130 e 145</p>
+      <h2 class="mkk-spotlight__h">Linha Stealth</h2>
+      <p class="mkk-spotlight__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <ul class="mkk-spotlight__lista">
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet consectetur</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit amet consectetur adipiscing</li>
+        <li><span class="mkk-spotlight__check"></span> Lorem ipsum dolor sit</li>
+      </ul>
+      <div class="mkk-spotlight__specs">
+        <div><p class="mkk-spotlight__spec-label">Capacidade</p><p class="mkk-spotlight__spec-value">2 a 3 pessoas</p></div>
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 cm</p></div>
+        <div><p class="mkk-spotlight__spec-label">Lorem</p><p class="mkk-spotlight__spec-value">Lorem 00 min</p></div>
+      </div>
+      <div class="mkk-spotlight__cta"><a class="mkk-btn" href="#orcamento">Lorem Ipsum Dolor</a></div>
+    </div>
+    <div class="mkk-galeria" role="group" aria-label="Fotos da linha Stealth">
+      <img class="mkk-galeria__main" src="img/stealth/stealth-galeria-01.jpg" alt="Barraca Stealth aberta, perfil largo com escada e placa MKK" loading="lazy" />
+      <img src="img/stealth/stealth-galeria-04.jpg" alt="Interior da Stealth, bolso na lona e luz quente" loading="lazy" />
+      <img src="img/stealth/stealth-galeria-05.jpg" alt="Interior da Stealth, janela de tela" loading="lazy" />
+    </div>
+  </div>
+</section>
+
 <!-- Consumidor: quem for montar/manter a LP Barracas no RD. Seção 8 --
-     Comparativo dos 3 modelos (base: página de produto do Yoho, tabela
-     técnica -- ver barracas-referencia-yoho.md seção 2, item 10). Campos
-     escolhidos a partir da ficha técnica real (barracas-manifesto-midia.md),
-     valores em Lorem por decisão da dona -- a copy final troca só os
-     valores, sem mexer no layout. No mobile a tabela rola na horizontal,
-     sem estourar a largura da página (.mkk-comparativo__scroll). -->
+     Comparativo dos 8 modelos, agrupados por linha (Prime 3 | Atlas 2 | Stealth 3)
+     -- base: tabela técnica da página de produto do Yoho (barracas-referencia-yoho.md
+     seção 2, item 10). Decidido em 390 px: 8 colunas não cabem, então a tabela
+     rola na horizontal DENTRO do próprio bloco (.mkk-comparativo__scroll) com a
+     1ª coluna (rótulos) e as duas linhas de cabeçalho presas (sticky) -- a página
+     não anda de lado. Campos escolhidos a partir da ficha técnica real
+     (barracas-manifesto-midia.md); valores em Lorem por decisão da dona (a copy
+     final troca só os valores, sem mexer no layout). Reais: nomes das linhas e
+     dos modelos e a linha CAPACIDADE (o Prime Z ainda não tem capacidade no
+     pacote, fica Lorem). O nome de cada linha (span .mkk-comp__grp)
+     fica preso ao lado da 1ª coluna enquanto qualquer coluna do grupo estiver
+     à vista. A "dica de rolagem" só aparece no celular/tablet. -->
 <section class="mkk-section mkk-comparativo mkk-full" id="comparativo">
   <div class="mkk-inner">
     <div class="mkk-sectionhead mkk-sectionhead--center">
@@ -736,26 +1044,38 @@ html, body { max-width: 100%; overflow-x: hidden; }
       <span class="mkk-h2__trace mkk-h2__trace--center"></span>
       <p class="mkk-sectionhead__p mkk-sectionhead__p--onDark">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
     </div>
+    <p class="mkk-comparativo__hint">Deslize para o lado para ver todos os modelos <span aria-hidden="true">&rarr;</span></p>
   </div>
-  <div class="mkk-comparativo__scroll">
+  <div class="mkk-comparativo__scroll" tabindex="0" role="region" aria-label="Comparativo dos oito modelos (role para o lado)">
     <table>
       <thead>
+        <tr class="mkk-comp__grupos">
+          <td></td>
+          <th scope="colgroup" colspan="3"><span class="mkk-comp__grp">Linha Prime</span></th>
+          <th scope="colgroup" colspan="2" class="mkk-comp__sep"><span class="mkk-comp__grp">Linha Atlas</span></th>
+          <th scope="colgroup" colspan="3" class="mkk-comp__sep"><span class="mkk-comp__grp">Linha Stealth</span></th>
+        </tr>
         <tr>
           <th scope="col">Lorem ipsum</th>
           <th scope="col">Prime Z</th>
           <th scope="col">Prime 135</th>
           <th scope="col">Prime X</th>
+          <th scope="col" class="mkk-comp__sep">Atlas 160</th>
+          <th scope="col">Atlas 210</th>
+          <th scope="col" class="mkk-comp__sep">Stealth 90</th>
+          <th scope="col">Stealth 130</th>
+          <th scope="col">Stealth 145</th>
         </tr>
       </thead>
       <tbody>
-        <tr><th scope="row">Lorem ipsum</th><td>Lorem 00 kg</td><td>Lorem 00 kg</td><td>Lorem 00 kg</td></tr>
-        <tr><th scope="row">Lorem ipsum dolor</th><td>Lorem 0 pessoas</td><td>Lorem 0 pessoas</td><td>Lorem 0 pessoas</td></tr>
-        <tr><th scope="row">Lorem ipsum</th><td>Lorem 000x000 cm</td><td>Lorem 000x000 cm</td><td>Lorem 000x000 cm</td></tr>
-        <tr><th scope="row">Lorem ipsum dolor sit</th><td>Lorem 00x00 cm</td><td>Lorem 00x00 cm</td><td>Lorem 00x00 cm</td></tr>
-        <tr><th scope="row">Lorem ipsum</th><td>Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum</td></tr>
-        <tr><th scope="row">Lorem ipsum dolor</th><td>Lorem 00D</td><td>Lorem 00D</td><td>Lorem 00D</td></tr>
-        <tr><th scope="row">Lorem ipsum</th><td>Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum dolor</td></tr>
-        <tr><th scope="row">Lorem ipsum dolor sit</th><td>Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum</td></tr>
+        <tr><th scope="row">Lorem ipsum</th><td>Lorem 00 kg</td><td>Lorem 00 kg</td><td>Lorem 00 kg</td><td class="mkk-comp__sep">Lorem 00 kg</td><td>Lorem 00 kg</td><td class="mkk-comp__sep">Lorem 00 kg</td><td>Lorem 00 kg</td><td>Lorem 00 kg</td></tr>
+        <tr><th scope="row">Capacidade</th><td>Lorem 0 pessoas</td><td>2 pessoas</td><td>3 pessoas</td><td class="mkk-comp__sep">3 pessoas</td><td>4 pessoas</td><td class="mkk-comp__sep">2 pessoas</td><td>2 pessoas</td><td>2 a 3 pessoas</td></tr>
+        <tr><th scope="row">Lorem ipsum</th><td>Lorem 000x000 cm</td><td>Lorem 000x000 cm</td><td>Lorem 000x000 cm</td><td class="mkk-comp__sep">Lorem 000x000 cm</td><td>Lorem 000x000 cm</td><td class="mkk-comp__sep">Lorem 000x000 cm</td><td>Lorem 000x000 cm</td><td>Lorem 000x000 cm</td></tr>
+        <tr><th scope="row">Lorem ipsum dolor sit</th><td>Lorem 00x00 cm</td><td>Lorem 00x00 cm</td><td>Lorem 00x00 cm</td><td class="mkk-comp__sep">Lorem 00x00 cm</td><td>Lorem 00x00 cm</td><td class="mkk-comp__sep">Lorem 00x00 cm</td><td>Lorem 00x00 cm</td><td>Lorem 00x00 cm</td></tr>
+        <tr><th scope="row">Lorem ipsum</th><td>Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum</td><td class="mkk-comp__sep">Lorem ipsum</td><td>Lorem ipsum</td><td class="mkk-comp__sep">Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum</td></tr>
+        <tr><th scope="row">Lorem ipsum dolor</th><td>Lorem 00D</td><td>Lorem 00D</td><td>Lorem 00D</td><td class="mkk-comp__sep">Lorem 00D</td><td>Lorem 00D</td><td class="mkk-comp__sep">Lorem 00D</td><td>Lorem 00D</td><td>Lorem 00D</td></tr>
+        <tr><th scope="row">Lorem ipsum</th><td>Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum dolor</td><td class="mkk-comp__sep">Lorem ipsum</td><td>Lorem ipsum</td><td class="mkk-comp__sep">Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum</td></tr>
+        <tr><th scope="row">Lorem ipsum dolor sit</th><td>Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum</td><td class="mkk-comp__sep">Lorem ipsum</td><td>Lorem ipsum</td><td class="mkk-comp__sep">Lorem ipsum</td><td>Lorem ipsum</td><td>Lorem ipsum</td></tr>
       </tbody>
     </table>
   </div>
